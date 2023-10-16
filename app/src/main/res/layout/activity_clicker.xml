@@ -8,9 +8,9 @@
 
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="172dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="70dp"
+        android:layout_width="160dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="47dp"
         android:layout_marginBottom="25dp"
         android:gravity="center"
         android:text="Привет!"
@@ -24,27 +24,28 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="245dp"
-        android:layout_height="146dp"
-        android:layout_marginBottom="18dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="31dp"
         android:gravity="center"
         android:text="Нажатия"
         android:textColor="#f010"
         android:textSize="30sp"
         android:textStyle="normal"
         app:layout_constraintBottom_toTopOf="@+id/button1"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="189dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="156dp"
+        android:layout_width="169dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="184dp"
         android:text="Кнопка 1"
         app:layout_constraintBottom_toTopOf="@+id/backButton2"
         app:layout_constraintEnd_toStartOf="@+id/button2"
@@ -53,11 +54,11 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="191dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="405dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="156dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="386dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="184dp"
         android:text="Кнопка 2"
         app:layout_constraintBottom_toTopOf="@+id/nextButton2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,8 +67,8 @@
 
     <Button
         android:id="@+id/nextButton2"
-        android:layout_width="172dp"
-        android:layout_height="69dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="16dp"
 
         android:layout_marginBottom="16dp"
@@ -79,8 +80,8 @@
 
     <Button
         android:id="@+id/backButton2"
-        android:layout_width="169dp"
-        android:layout_height="62dp"
+        android:layout_width="179dp"
+        android:layout_height="72dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="39dp"
         android:layout_marginBottom="16dp"

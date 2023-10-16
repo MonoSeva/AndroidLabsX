@@ -22,6 +22,9 @@
             android:name=".ListOfData"
             android:exported="false" />
         <activity
+            android:name=".UserInfo"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

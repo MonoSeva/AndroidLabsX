@@ -23,7 +23,7 @@ public class ListOfData extends AppCompatActivity {
     private ArrayList<String> dataAL;
     private ListView list;
     private SparseBooleanArray checkedItems;
-
+    private SharedPreferences sharedPreferences;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -43,6 +43,7 @@ public class ListOfData extends AppCompatActivity {
         list.setAdapter(adapter);
         list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
+        sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE);
 
         button7.setOnClickListener(view -> {
             String data = nameText1.getText().toString().trim();
@@ -72,22 +73,34 @@ public class ListOfData extends AppCompatActivity {
         });
 
         backButton1.setOnClickListener(view -> {
-            Intent intent3 = new Intent(ListOfData.this, MainActivity.class);
+            Intent intent3 = new Intent(ListOfData.this, UserInfo.class);
             startActivity(intent3);
         });
 
+        Set<String> savedData = sharedPreferences.getStringSet("listData", null);
+        if (savedData != null) {
+            dataAL.addAll(savedData);
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         Log.d("Логи приложения", "Сообщение отладки для метода onDestroy()");
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putStringSet("listData", new HashSet<>(dataAL));
+        editor.apply();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         Log.d("Логи приложения", "Сообщение отладки для метода onPause()");
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putStringSet("listData", new HashSet<>(dataAL));
+        editor.apply();
     }
 
     @Override
