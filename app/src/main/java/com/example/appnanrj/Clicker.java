@@ -20,6 +20,8 @@ public class Clicker extends AppCompatActivity {
         TextView text = findViewById(R.id.textView2);
         Button button1 = findViewById(R.id.button1);
         Button button2 = findViewById(R.id.button2);
+        Button nextButton1 = findViewById(R.id.nextButton2);
+        Button backButton1 = findViewById(R.id.backButton2);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,5 +41,20 @@ public class Clicker extends AppCompatActivity {
             }
         });
 
+        nextButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Clicker.this, DopActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        backButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Clicker.this, ListOfData.class);
+                startActivity(intent);
+            }
+        });
     }
 }

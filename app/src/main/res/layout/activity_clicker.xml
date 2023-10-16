@@ -11,30 +11,30 @@
         android:layout_width="155dp"
         android:layout_height="0dp"
         android:layout_marginTop="70dp"
-        android:layout_marginBottom="256dp"
+        android:layout_marginBottom="47dp"
         android:gravity="center"
         android:text="Привет!"
         android:textColor="#f010"
         android:textSize="30sp"
         android:textStyle="normal"
-        app:layout_constraintBottom_toTopOf="@+id/button1"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="176dp"
+        android:layout_width="226dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="17dp"
         android:gravity="center"
         android:text="Нажатия"
         android:textColor="#f010"
         android:textSize="30sp"
         android:textStyle="normal"
         app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="@+id/button1"
-        app:layout_constraintStart_toEndOf="@+id/button1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
     <Button
@@ -42,25 +42,52 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginBottom="193dp"
+        android:layout_marginTop="384dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="185dp"
         android:text="Кнопка 1"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/backButton2"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="181dp"
-        android:layout_height="105dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="193dp"
+        android:layout_width="196dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="190dp"
         android:text="Кнопка 2"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/nextButton2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button1"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/nextButton2"
+        android:layout_width="180dp"
+        android:layout_height="72dp"
+
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="16dp"
+        android:text="Далее"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/backButton2"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+    <Button
+        android:id="@+id/backButton2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="16dp"
+        android:text="Назад"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/nextButton2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppnAnrJ">
         <activity
+            android:name=".DopActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".DopActivity"
+            android:exported="false" />
+        <activity
             android:name=".Clicker"
+            android:exported="false" />
+        <activity
+            android:name=".ListOfData"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
