@@ -24,6 +24,7 @@ public class ListOfData extends AppCompatActivity {
     private ListView list;
     private SparseBooleanArray checkedItems;
 
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,4 +78,33 @@ public class ListOfData extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("Логи приложения", "Сообщение отладки для метода onDestroy()");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("Логи приложения", "Сообщение отладки для метода onPause()");
+    }
+
+    @Override
+    protected void onResume() {
+        Log.i("Логи приложения", "Сообщение информации для метода onResume()");
+        super.onResume();
+    }
+
+    @Override
+    protected void onStart() {
+        Log.w("Логи приложения", "Сообщение предупреждения для метода onStart()");
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        Log.v("Логи приложения", "Сообщение подробностей для метода onStop()");
+        super.onStop();
+    }
 }
