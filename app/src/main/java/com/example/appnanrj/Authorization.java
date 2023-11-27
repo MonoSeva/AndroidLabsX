@@ -26,50 +26,27 @@ public class Authorization extends AppCompatActivity {
         });
 
         button.setOnClickListener(view -> {
+            String login = userLogin.getText().toString().trim();
+            String pass = userPass.getText().toString().trim();
 
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    String login = userLogin.getText().toString().trim();
-                    String pass = userPass.getText().toString().trim();
+            if (login.isEmpty() || pass.isEmpty()) {
+                Toast.makeText(this, "Не все поля заполнены", Toast.LENGTH_LONG).show();
+            } else {
+                DatabaseHandler db = new DatabaseHandler(this, null);
+                boolean isAuth = db.getUser(login, pass);
 
-                    if (login.isEmpty() || pass.isEmpty()) {
-                        button.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                Toast.makeText(Authorization.this, "Не все поля заполнены", Toast.LENGTH_LONG).show();
-                            }
-                        });
+                if (isAuth) {
+                    Toast.makeText(this, "Пользователь " + login + " авторизован", Toast.LENGTH_LONG).show();
+                    userLogin.getText().clear();
+                    userPass.getText().clear();
 
-                    } else {
-                        DatabaseHandler db = new DatabaseHandler(Authorization.this, null);
-                        boolean isAuth = db.getUser(login, pass);
+                    Intent intent2 = new Intent(Authorization.this, ListOfData.class);
+                    startActivity(intent2);
 
-                        if (isAuth) {
-                            button.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(Authorization.this, "Пользователь " + login + " авторизован", Toast.LENGTH_LONG).show();
-                                    userLogin.getText().clear();
-                                    userPass.getText().clear();
-
-                                    Intent intent2 = new Intent(Authorization.this, ListOfData.class);
-                                    startActivity(intent2);
-                                }
-                            });
-
-                        } else {
-                            button.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(Authorization.this, "Пользователь " + login + " не авторизован", Toast.LENGTH_LONG).show();
-                                }
-                            });
-                        }
-                    }
+                } else {
+                    Toast.makeText(this, "Пользователь " + login + " не авторизован", Toast.LENGTH_LONG).show();
                 }
-            }).start();
-
+            }
         });
     }
 }

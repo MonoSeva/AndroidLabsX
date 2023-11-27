@@ -45,47 +45,27 @@ public class HelloActivity1 extends AppCompatActivity {
         });
 
         button.setOnClickListener(view -> {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    String login = userLogin.getText().toString().trim();
-                    String id = userId.getText().toString().trim();
-                    String pass = userPass.getText().toString().trim();
+            String login = userLogin.getText().toString().trim();
+            String id = userId.getText().toString().trim();
+            String pass = userPass.getText().toString().trim();
 
-                    if (login.isEmpty() | id.isEmpty() | pass.isEmpty()) {
-                        Toast.makeText(HelloActivity1.this, "Не все поля заполнены", Toast.LENGTH_LONG).show();
-                    } else {
-                        User user = new User(Integer.parseInt(id), login, pass);
-                        button.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                db.addUser(user);
-                                Toast.makeText(HelloActivity1.this, "Пользователь " + login + " добавлен", Toast.LENGTH_LONG).show();
-                            }
-                        });
-                    }
-                }
-            }).start();
+            if (login.isEmpty() | id.isEmpty() | pass.isEmpty()) {
+                Toast.makeText(HelloActivity1.this, "Не все поля заполнены", Toast.LENGTH_LONG).show();
+            } else {
+                User user = new User(Integer.parseInt(id), login, pass);
+                db.addUser(user);
+                Toast.makeText(HelloActivity1.this, "Пользователь " + login + " добавлен", Toast.LENGTH_LONG).show();
+            }
         });
 
         btnLoad.setOnClickListener(view -> {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    List<User> users = db.getAllUsers();
-                    StringBuilder usersLog = new StringBuilder();
-                    for (User user : users) {
-                        usersLog.append(user.toString()).append(",\n");
-                    }
-                    Log.d(TAG, "Users:\n" + usersLog);
-                    btnLoad.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            userAdapter.setData(users);
-                        }
-                    });
-                }
-            }).start();
+            List<User> users = db.getAllUsers();
+            StringBuilder usersLog = new StringBuilder();
+            for (User user : users) {
+                usersLog.append(user.toString()).append(",\n");
+            }
+            Log.d(TAG, "Users:\n" + usersLog);
+            userAdapter.setData(users);
         });
 
         rvUsers = findViewById(R.id.rv_users);
@@ -97,56 +77,27 @@ public class HelloActivity1 extends AppCompatActivity {
         userAdapter.setListener(new UserAdapter.UserClickListener() {
             @Override
             public void onItemClick(User user) {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        rvUsers.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                Toast.makeText(HelloActivity1.this, "onItemClick() user=" + user.toString(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    }
-                }).start();
+                Toast.makeText(HelloActivity1.this, "onItemClick() user=" + user.toString(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onMenuDeleteClick(User user) {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        db.deleteUserFromDB(user.getLogin());
+                Toast.makeText(HelloActivity1.this, "onMenuDeleteClick() user=" + user.toString(), Toast.LENGTH_SHORT).show();
 
-                        List<User> users = db.getAllUsers();
-                        StringBuilder usersLog = new StringBuilder();
-                        for (User u : users) {
-                            usersLog.append(u.toString()).append(",\n");
-                        }
-                        Log.d(TAG, "Users:\n" + usersLog);
-                        rvUsers.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                userAdapter.setData(users);
-                                Toast.makeText(HelloActivity1.this, "onMenuDeleteClick() user=" + user.toString(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    }
-                }).start();
+                db.deleteUserFromDB(user.getLogin());
+
+                List<User> users = db.getAllUsers();
+                StringBuilder usersLog = new StringBuilder();
+                for (User u : users) {
+                    usersLog.append(u.toString()).append(",\n");
+                }
+                Log.d(TAG, "Users:\n" + usersLog);
+                userAdapter.setData(users);
             }
 
             @Override
             public void onMenuPassChangeClick(User user) {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        rvUsers.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                db.PassChangeClick(user, context);
-                            }
-                        });
-                    }
-                }).start();
+                db.PassChangeClick(user, context);
             }
         });
     }
