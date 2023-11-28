@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F6C9C9"
     android:orientation="vertical"
     tools:context=".HelloActivity1">
 
@@ -12,60 +13,62 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Создайте аккаунт"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="120dp"
+        android:text="Создание аккаунта"
         android:textSize="25sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/user_login"
         android:layout_width="220dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:ems="10"
-        android:inputType="text"
-        android:hint="Введите логин"/>
+        android:hint="Введите логин"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/user_id"
         android:layout_width="220dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
-        android:hint="Введите id"/>
+        android:hint="Введите id"
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/user_pass"
         android:layout_width="220dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:ems="10"
-        android:inputType="textPassword"
-        android:hint="Введите пароль"/>
+        android:hint="Введите пароль"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/button_reg"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:text="Регистрация"
-        android:layout_marginTop="30dp"
         android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:text="Регистрация"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:backgroundTint="#9E1C41" />
 
     <Button
-        android:id="@+id/btnLoad"
+        android:id="@+id/btnLogLoad"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:text="Вывести лог"
-        android:layout_marginTop="10dp"
         android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Список"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:backgroundTint="#9E1C41" />
 
     <TextView
         android:id="@+id/link_to_auth"
@@ -73,19 +76,18 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:text="Авторизоваться"
+        android:text="Авторизация"
         android:textSize="17sp"
         android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_users"
         android:layout_width="match_parent"
-        android:layout_height="172dp"
+        android:layout_height="154dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_load" />
-
 
 
 </LinearLayout>
