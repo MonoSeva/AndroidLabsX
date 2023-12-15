@@ -3,33 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE"
+
+        android:name="android.permission.ACCELEROMETER"
         android:maxSdkVersion="32" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="КОМПАС"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppnAnrJ">
-        <activity
-            android:name=".DopActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".DopActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Clicker"
-            android:exported="false" />
-        <activity
-            android:name=".ListOfData"
-            android:exported="false" />
-        <activity
-            android:name=".Authorization"
-            android:exported="false" />
+
         <activity
             android:name=".HelloActivity1"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
